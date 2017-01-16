@@ -1,6 +1,6 @@
 'use strict';
 
-// REVIEW: Check out all of the functions that we've cleaned up with arrow function syntax.
+// DONE: Check out all of the functions that we've cleaned up with arrow function syntax.
 
 // Done: Wrap the entire contents of this file in an IIFE.
 // Pass in to the IIFE a module, upon which objects can be attached for later access.
@@ -85,8 +85,13 @@ Article.numWordsByAuthor = () => {
 
     }
     return {
-      name: , // TODO: Complete the value for this object property
-      numWords: Article.all.filter().map().reduce() // TODO: Complete these three FP methods.
+      name: , // DONE: Complete the value for this object property
+      numWords: Article.all.filter(ele => ele.author === author)
+        .map(ele => ele.body.split (' ').length)
+        .reduce((prev, current) => prev + current),
+      numArticles: Article.all.filter(ele => ele.author === author)
+        .map(ele => ele.body).length,
+        // TODO: Complete these three FP methods.
     }
   })
 };
