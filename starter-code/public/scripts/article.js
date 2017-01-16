@@ -8,10 +8,10 @@
 (function(module) {
   function Article(opts) {
   // REVIEW: Lets review what's actually happening here, and check out some new syntax!!
-  Object.keys(opts).forEach(e => this[e] = opts[e]);
-}
+    Object.keys(opts).forEach(e => this[e] = opts[e]);
+  }
 
-Article.all = [];
+  Article.all = [];
 
 Article.prototype.toHtml = function() {
   var template = Handlebars.compile($('#article-template').text());
@@ -68,12 +68,12 @@ Article.numWordsAll = () => {
 
 // DONE: Chain together a `map` and a `reduce` call to produce an array of unique author names.
 Article.allAuthors = () => {
-  return Article.all.map(ele => Article.author).reduce(prev,current)
+  return Article.all.map(ele => Article.author).reduce((prev, current) =>{
   if(!prev.includes(current)) {
     prev.push(current);
   }
   return prev;
-}, []);
+}, [])
 
 
 Article.numWordsByAuthor = () => {
@@ -85,7 +85,7 @@ Article.numWordsByAuthor = () => {
 
     }
     return {
-      name: , // DONE: Complete the value for this object property
+      name: author,// DONE: Complete the value for this object property
       numWords: Article.all.filter(ele => ele.author === author)
         .map(ele => ele.body.split (' ').length)
         .reduce((prev, current) => prev + current),
