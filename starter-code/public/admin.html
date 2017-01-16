@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-    <!-- TODO: Setup a template for each row of the Author Stats section of this page: -->
+    <!-- Done: Setup a template for each row of the Author Stats section of this page: -->
+    <script id ="author-template" type "text/x-handlebars-template">
+      <li>{{author}}:{{numWords}}words written</li>
+    </script>
 
   </head>
   <body>
@@ -30,6 +33,7 @@
         </ul>
       </nav>
     </header>
+
     <main class="clearfix">
       <h1>Blog Stats</h1>
       <section id="blog-stats">
@@ -40,10 +44,7 @@
         <ul class="author-stats">
 
           <!-- TODO: Use a handlebars template to fill in some stats for each author -->
-          <div class="authorNames">
-            <li>{{author}}:{{numWords}}words written</li>
 
-          </div>
 
         </ul>
       </section>
@@ -57,11 +58,9 @@
     <script src="/scripts/article.js"></script>
     <script src="/scripts/articleView.js"></script>
     <script>
-      // TODO: After we fetch and load all the articles, what view function do we want to run next?
+      // Done: After we fetch and load all the articles, what view function do we want to run next?
       // Let's pass in a callback function, to determine what happens AFTER all articles are loaded.
-       (function(module){
-
-       })(window);
+      Article.fetchAll(articleView.initAdminPage);
     </script>
   </body>
 </html>
