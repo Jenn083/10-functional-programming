@@ -62,17 +62,15 @@ Article.fetchAll = callback => {
 
 // Done: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
 Article.numWordsAll = () => {
-  return Article.all.map(ele => Article.body.split(' ').length).reduce((a,b) => a+b)
-
-};
+  return Article.all.map(article => article.body.split(' ').length).reduce((totalWords,words) => totalWords + words);
 
 // DONE: Chain together a `map` and a `reduce` call to produce an array of unique author names.
 Article.allAuthors = () => {
-  return Article.all.map(ele => Article.author).reduce(prev,current)
-  if(!prev.includes(current)) {
-    prev.push(current);
+  return Article.all.map(ele => Article.author).reduce( (array,author) => {
+  if(!array.includes(author)) {
+    array.push(author);
   }
-  return prev;
+  return array;
 }, []);
 
 
